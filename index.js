@@ -1,10 +1,20 @@
+const stuff = document.getElementById('stuff');
+const loggedIn = localStorage.getItem('loggedIn');
 
-const resultsList = document.getElementById('results');
-let info = [];
-new URLSearchParams(window.location.search).forEach((value, name) => {
-    resultsList.append(`${name}: ${value}`);
-    info.push(value);
-    resultsList.append(document.createElement('br'));
+if(loggedIn === "true"){
+    const username = localStorage.getItem('username');
+    stuff.innerHTML += `Welcome, ${username}`;
+    stuff.append(document.createElement('br'));
+    stuff.innerHTML += "<a href='login.html' id='logout'>Logout</a>";
+
+    const logout = document.getElementById('logout');
+    logout.addEventListener('click', function(){
+        localStorage.removeItem('loggedIn');
+        localStorage.removeItem('username');
+        localStorage.removeItem('usertype');
 })
-
-console.log(info);
+}
+else{
+    stuff.innerHTML += "<div>Not logged in</div>"
+    stuff.innerHTML += "<a href='./login.html'>Login</a>"
+}
