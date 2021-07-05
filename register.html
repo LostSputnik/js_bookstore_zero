@@ -9,14 +9,14 @@
 </head>
 <body>
     <div class="hero">
-        <form action="registered.html" method="get" class="form">
+        <form action="registered.html" method="get" class="form" id="form">
             <div>
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="username">
+                <input type="text" name="username" id="username" placeholder="username" required>
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="password">
+                <input type="password" name="password" id="password" placeholder="password" required>
             </div>
             <div>
                 <label for="usertype">Please Select Account Type</label>
@@ -25,29 +25,13 @@
                     <option value="admin">Admin</option>
                 </select>
             </div>
-            <button id="register" class="register">Register</button>
+            <!-- <button id="register" class="register">Register</button> -->
+            <input type="submit" value="Register" name="submit" id="submit">
+
             <h2>Already registerd? <a href="login.html">Login Here</a></h2>
-            <!-- <input type="submit" value="submit" name="submit"> -->
         </form>        
     </div>
-
-    <!-- <script src="./scipt.js"></script> -->
-    <!-- <script>
-        // alert("hello");
-        const hero = document.querySelector(".hero");
-        const form = hero.querySelectorAll('.form');
-        const submitInput = form[0].querySelector(".register");
-
-        function getDataForm(e){
-            e.preventDefault();
-            let formData = new FormData(form[0]);
-            alert(formData.get('username'));
-        }
-
-        document.addEventListener('DOMContentLoaded', function(){
-            submitInput.addEventListener('click', getDataForm, false);
-        })
-    </script> -->
+    <script src="register.js"></script>
     
 </body>
 </html>
