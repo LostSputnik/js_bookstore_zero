@@ -24,8 +24,8 @@ function showBooks(){
         output += `
         <ul class= 'list-group mb-3'>
                 <li class='list-group-item'>ID: ${book.id}</li>
-                <li class='list-group-item'>Mail: ${book.name}</li>
-                <li class='list-group-item'>Name: ${book.author}</li>    
+                <li class='list-group-item'>Name: ${book.name}</li>
+                <li class='list-group-item'>Author: ${book.author}</li>    
         </ul>
         `;
     });
