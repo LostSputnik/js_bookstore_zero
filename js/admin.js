@@ -2,8 +2,12 @@ import {logOut} from './logout.js';
 import {fetchBookInfo} from './booksAPI.js';
 import {showAPISearchResults, addBook} from './adminFunctions.js';
 import {greetUser} from './greetuser.js';
+import {checkLoggedIn} from './checkloggedinstatus.js';
+import {checkifadmin} from './checkifadmin.js';
 greetUser();
 
+checkLoggedIn();
+checkifadmin();
 
 let logout = document.querySelector('.logout');
 logout.addEventListener('click', logOut);

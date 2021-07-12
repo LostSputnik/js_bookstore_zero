@@ -12,7 +12,7 @@
 
 .header {
     display: grid;
-    grid-template-columns: 5fr .5fr .5fr;
+    grid-template-columns: 5fr .6fr .4fr;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 30px;
@@ -34,6 +34,9 @@
     margin-top: 5px;
 }
 
+.container {
+    margin-bottom: 50px;
+}
 
 
 .books .library-text {
