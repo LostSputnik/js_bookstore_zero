@@ -26,7 +26,6 @@ const showBooks = (library, books) => {
         library.innerHTML = output;
 
         // THIS CODE ADDED ID TO BOOK'S CLASS IN OLDER IMPLEMENTATION
-        
         // let links = library.querySelectorAll('.booklink');
         // // console.log(links);
         // links.forEach(link => {
@@ -45,10 +44,13 @@ const fetchBooksandShow = async (library, url) => {
     const books = data.data.data;
     showBooks(library, books);
 }
+try{
+    greetUser();
+    // let data = localStorage.getItem('books');
+    let library = document.querySelector('.library');
+    let url = 'http://127.0.0.1:3000/api/v1/books';
 
-greetUser();
-// let data = localStorage.getItem('books');
-let library = document.querySelector('.library');
-let url = 'http://127.0.0.1:3000/api/v1/books';
-
-fetchBooksandShow(library, url);
+    fetchBooksandShow(library, url);
+} catch(err){
+    console.log(err);
+}

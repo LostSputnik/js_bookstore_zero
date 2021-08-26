@@ -40,5 +40,9 @@ const showBook = (book) => {
 
 }
 
-greetUser();
-getBook()
+try{
+    greetUser();
+    getBook()
+} catch(err) {
+    console.log(err);
+}
