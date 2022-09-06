@@ -51,7 +51,7 @@ function loginUser(id) {
   alert.innerHTML = output;
 
   setTimeout(() => {
-    window.location.replace("../booklist.html");
+    window.location.replace("../index.html");
   }, 1500);
 }
 
