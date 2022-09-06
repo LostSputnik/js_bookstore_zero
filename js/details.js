@@ -24,6 +24,42 @@ if (!user) {
             <hr>`;
 }
 
+function renderReviewForBook() {
+  let reviewsJSON = localStorage.getItem("reviews");
+  let reviews = JSON.parse(reviewsJSON);
+
+  if (!reviews) {
+    reviews = [];
+  }
+
+  let bookReviews = reviews.filter((book) => book.isbn == isbn);
+  let bookReviewsHTML = "";
+  if (bookReviews.length) {
+    bookReviews.forEach((review) => {
+      bookReviewsHTML += `<div class="row">
+            <div class="col s12 m12">
+            <div class="card grey lighten-5">
+                <div class="card-content">
+                <span class="card-title">${review.reviewTitle}</span>
+                <p>
+                    ${review.reviewBody}
+                </p>
+                </div>
+                <div class="card-action">Review by: ${review.user}</div>
+            </div>
+            </div>
+        </div>
+        `;
+    });
+  } else {
+    bookReviewsHTML =
+      "No reviews yet for this book. Maybe write one yourself?!";
+  }
+
+  let reviewList = document.querySelector(".review-list");
+  reviewList.innerHTML = bookReviewsHTML;
+}
+
 const info = document.querySelector(".book-info");
 
 let output = `
@@ -46,7 +82,7 @@ let output = `
             <div class="googlebookslink"><a href="${book.infolink}">Learn more on Google Books</a>
             </div>
             <hr>
-
 `;
 
 info.innerHTML = output;
+renderReviewForBook();
