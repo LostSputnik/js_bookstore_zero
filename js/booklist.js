@@ -1,46 +1,44 @@
-import {logOut} from './logout.js';
-import {greetUser} from './greetuser.js';
-greetUser();
+import { logOut } from "./logout.js";
+import { greetUser } from "./greetuser.js";
+import { renderTopBar } from "./renderTopBar.js";
 
-let logout = document.querySelector('.logout');
-logout.addEventListener('click', logOut);
+renderTopBar();
+// greetUser();
 
-let library = document.querySelector('.library');
+let logout = document.querySelector(".logout");
+logout.addEventListener("click", logOut);
 
-let data = localStorage.getItem('books');
+let library = document.querySelector(".library");
+
+let data = localStorage.getItem("books");
 let books = JSON.parse(data);
 
-
-if(!books){
-    books = [];
+if (!books) {
+  books = [];
 }
 
-if(!books.length){
-    // console.log('ok');
-    library.innerHTML = "Sorry, No Books Yet!"
-}
-else{
-    let output = '';
-    books.forEach(book => {
-        output += `
+if (!books.length) {
+  // console.log('ok');
+  library.innerHTML = "Sorry, No Books Yet!";
+} else {
+  let output = "";
+  books.forEach((book) => {
+    output += `
         <div class="book">
             <img src="${book.thumbnail}" alt="" class="cover">
             <div class="book-title">${book.title}</div>
             <a href="./details.html" class="booklink ${book.id}">Know More</a>
         </div>
         `;
+  });
+  library.innerHTML = output;
+  let links = library.querySelectorAll(".booklink");
+  console.log(links);
+  links.forEach((link) => {
+    // console.log(link.classList[1]);
+    link.addEventListener("click", () => {
+      let id = link.classList[1];
+      localStorage.setItem("currentBook", id);
     });
-    library.innerHTML = output;
-    let links = library.querySelectorAll('.booklink');
-    console.log(links);
-    links.forEach(link => {
-        // console.log(link.classList[1]);
-        link.addEventListener('click', () => {
-            let id = link.classList[1];
-            localStorage.setItem('currentBook', id);
-        });
-    });
+  });
 }
-
-
-
