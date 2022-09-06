@@ -3,6 +3,10 @@ import { greetUser } from "./greetuser.js";
 import { renderTopBar } from "./renderTopBar.js";
 renderTopBar();
 
+import { logOut } from "./logout.js";
+let logout = document.querySelector(".logout");
+logout.addEventListener("click", logOut);
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
