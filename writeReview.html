@@ -35,8 +35,35 @@
     <hr />
     <div class="container">
       <div class="book-info"></div>
+      <div style="padding-top: 10px" class="write-review">
+        <div class="book-title">Write A Review:</div>
+        <form action="" class="login-form">
+          <input
+            type="text"
+            class="reviewTitle"
+            placeholder="Review Title"
+            id="reviewTitle"
+            name="reviewTitle"
+            style="padding-top: 10px"
+          />
+          <textarea
+            id="textarea1"
+            class="materialize-textarea"
+            placeholder="Review Details"
+          ></textarea>
+
+          <button
+            class="btn waves-effect waves-light submit-button"
+            type="submit"
+            name=""
+          >
+            Submit Review
+          </button>
+        </form>
+        <div class="alert"></div>
+      </div>
     </div>
 
-    <script type="module" src="js/details.js"></script>
+    <script type="module" src="js/writeReview.js"></script>
   </body>
 </html>
