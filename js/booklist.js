@@ -16,6 +16,7 @@ let books = JSON.parse(data);
 
 if (!books) {
   books = loadDefaultBooks();
+  localStorage.setItem("books", JSON.stringify(books));
 }
 
 let search = document.querySelector(".book-search");
@@ -44,20 +45,11 @@ function renderBookList(books) {
           <div class="book">
               <img src="${book.thumbnail}" alt="" class="cover">
               <div class="book-title">${book.title}</div>
-              <a href="./details.html" class="booklink ${book.id}">Know More</a>
+              <a href="./details.html?isbn=${book.isbn}">Know More</a>
           </div>
           `;
     });
     library.innerHTML = output;
-    let links = library.querySelectorAll(".booklink");
-    console.log(links);
-    links.forEach((link) => {
-      // console.log(link.classList[1]);
-      link.addEventListener("click", () => {
-        let id = link.classList[1];
-        localStorage.setItem("currentBook", id);
-      });
-    });
   }
 }
 renderBookList(books);

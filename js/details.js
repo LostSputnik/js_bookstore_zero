@@ -1,16 +1,20 @@
-import {greetUser} from './greetuser.js';
-greetUser();
+import { greetUser } from "./greetuser.js";
+// greetUser();
+import { renderTopBar } from "./renderTopBar.js";
+renderTopBar();
 
-const id = localStorage.getItem('currentBook');
-const data = localStorage.getItem('books');
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+const isbn = urlParams.get("isbn");
+const data = localStorage.getItem("books");
 const books = JSON.parse(data);
 // console.log(books);
 
-const book = books[id];
+const book = books.find((book) => book.isbn == isbn);
 // console.log(book);
 
-const info = document.querySelector('.book-info');
-console.log(book.infolink)
+const info = document.querySelector(".book-info");
 
 let output = `
             <img src="${book.thumbnail}" alt="" class="thumbnail">
@@ -32,6 +36,6 @@ let output = `
             </div>
             <hr>
 
-`
+`;
 
 info.innerHTML = output;
